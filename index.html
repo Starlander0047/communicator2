@@ -7,6 +7,7 @@
 function sendToParent(data) {
   if (window.parent) {
     console.log("Event Revceived: ", data);
+    console.log(window.parent);
     window.parent.postMessage(data, "*");
   }
 }
