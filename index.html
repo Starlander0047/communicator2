@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Communicator</title>
+
+<script>
+function sendToParent(data) {
+  if (window.parent) {
+    console.log("Event Revceived: ", data);
+    window.parent.postMessage(data, "*");
+  }
+}
+
+window.addEventListener("message", function(event) {
+    console.log("Event Info: ", event);
+  if (event.data) {
+    sendToParent(event.data);
+  }
+});
+
+if (window.location.hash && window.location.hash.length > 1) {
+    console.log("Hash Info: ", window.location.hash.substring(1));
+  sendToParent(window.location.hash.substring(1));
+}
+</script>
+
+</head>
+<body></body>
+</html>
