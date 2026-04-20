@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Communicator</title>
+<title>Communicator2</title>
 
 <script>
 function sendToParent(data) {
   if (window.parent) {
     console.log("Event Revceived: ", data);
-    console.log(window.parent);
-    window.parent.postMessage(data, "*");
+    console.log(window);
+    window.top.postMessage(data, "*");
   }
 }
 
